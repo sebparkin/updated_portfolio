@@ -29,7 +29,8 @@ export const AboutSection = () => {
                 Contact Me
               </a>
               <a
-                href=""
+                href="/cv.pdf"
+                download="Sebastian_Parkin_CV.pdf"
                 className={cn(
                   "px-6 py-2 rounded-2xl border border-primary text-foreground hover:bg-primary/10",
                   "transition-colors duration-300",
