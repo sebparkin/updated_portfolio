@@ -2,6 +2,8 @@
 
 A personal portfolio website showcasing projects in machine learning, computational biophysics, and frontend development.
 
+Link: https://sebparkin-portfolio.vercel.app
+
 ## Tech Stack
 
 ### Core
