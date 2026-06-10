@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { X, Menu } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -13,9 +13,6 @@ const navItems = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
-  const navRef = useRef(null);
-  const [navHeight, setNavHeight] = useState(0);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -24,21 +21,11 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (!navRef.current) return;
-    const observer = new ResizeObserver(() => {
-      setNavHeight(navRef.current.offsetHeight);
-    });
-    observer.observe(navRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
       <nav
-        ref={navRef}
         className={cn(
-          "fixed w-full z-40 transition-all duration-300",
+          "fixed top-0 w-full z-40 transition-all duration-300",
           isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5",
         )}
       >
@@ -77,9 +64,8 @@ export const Navbar = () => {
 
       {/* Mobile overlay — outside <nav> so backdrop-filter doesn't trap fixed positioning */}
       <div
-        style={{ top: navHeight }}
         className={cn(
-          "fixed inset-x-0 bottom-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
+          "fixed inset-0 bg-background/95 backdrop-blur-md z-30 flex flex-col items-center justify-center",
           "transition-all duration-300 md:hidden",
           isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         )}

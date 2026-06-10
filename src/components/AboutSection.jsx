@@ -14,7 +14,7 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground">
-              I specialise in building end-to-end systems — from training and deploying machine
+              I specialise in building end-to-end systems - from training and deploying machine
               learning models in Python to crafting the interfaces that bring them to life. My work
               spans data pipelines, backend logic, and polished frontends, with a focus on shipping
               things that actually work in production.
@@ -77,7 +77,7 @@ export const AboutSection = () => {
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">Interpersonal Skills</h4>
                   <p className="text-muted-foreground">
-                    Experience working drectly with clients, ensuring that the needs are always met
+                    Experience working directly with clients, ensuring that the needs are always met
                     and projects delivered on time.
                   </p>
                 </div>
