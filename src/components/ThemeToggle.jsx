@@ -2,6 +2,11 @@ import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "../lib/utils";
 
+const setThemeColor = (isDark) => {
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", isDark ? "#27272a" : "#fafaf9");
+};
+
 export const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -14,6 +19,7 @@ export const ThemeToggle = () => {
       setIsDarkMode(true);
       document.documentElement.classList.add("dark");
     }
+    setThemeColor(prefersDark);
   }, []);
 
   const toggleTheme = () => {
@@ -21,10 +27,12 @@ export const ThemeToggle = () => {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
       setIsDarkMode(false);
+      setThemeColor(false);
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
       setIsDarkMode(true);
+      setThemeColor(true);
     }
   };
 
